@@ -213,7 +213,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-        keys: [backend-build]
+          keys: [backend-build]
       - aws-cli/setup
       - run:
         name: Run migrations
