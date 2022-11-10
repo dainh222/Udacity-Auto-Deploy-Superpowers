@@ -229,13 +229,7 @@ jobs:
             then
                 # If you are using kvdb.io, generate the bucket ID "2Aha6gpmfmedtFxmwVJPgC" in your local terminal first
                 curl https://kvdb.io/2Aha6gpmfmedtFxmwVJPgC/migration_${CIRCLE_WORKFLOW_ID:0:7}  -d '1'
-            fie      
-      - persist_to_workspace:
-          root: ~/
-          paths: 
-            - project/backend/migration-results.txt
-      - revert-migrations
-      - destroy-environment
+            fi      
   deploy-frontend:
     docker:
       - image: cimg/node:16.13.1
