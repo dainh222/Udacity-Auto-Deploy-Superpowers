@@ -241,6 +241,7 @@ jobs:
           name: Install dependencies
           command: |
             sudo apt install -y gzip tar
+            sudo apt-get update
             sudo apt-get install awscli
       - attach_workspace:
           at: ~/
