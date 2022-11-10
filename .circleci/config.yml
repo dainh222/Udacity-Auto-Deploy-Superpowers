@@ -192,7 +192,7 @@ jobs:
       - checkout
       # Add ssh keys with fingerprint
       - add_ssh_keys:
-          fingerprints: ["8f:b0:89:81:9b:62:27:7e:1e:d1:7f:c6:72:f4:d1:51"]
+          fingerprints: ["ef:c8:3c:74:f6:20:70:04:b1:09:c8:89:98:71:01:a2"]
       # attach workspace
       - attach_workspace:
         at: ~/
@@ -266,7 +266,7 @@ jobs:
     steps:
       - checkout
       - add_ssh_keys:
-          fingerprints: ["8f:b0:89:81:9b:62:27:7e:1e:d1:7f:c6:72:f4:d1:51"]
+          fingerprints: ["ef:c8:3c:74:f6:20:70:04:b1:09:c8:89:98:71:01:a2"]
       - attach_workspace:
           at: ~/
       - run:
@@ -363,9 +363,9 @@ workflows:
           requires: [build-frontend]
       - deploy-infrastructure:
           requires: [test-frontend, test-backend, scan-frontend, scan-backend]
-          filters:
-            branches:
-              only: [test-feature-branch]
+          # filters:
+          #   branches:
+          #     only: [test-feature-branch]
       - configure-infrastructure:
           requires: [deploy-infrastructure]
       - run-migrations:
