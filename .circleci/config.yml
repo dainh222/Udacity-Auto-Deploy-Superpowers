@@ -211,7 +211,7 @@ jobs:
 
   run-migrations:
     docker:
-      - image: cimg/node:16.13.1
+      - image: sleavely/node-awscli:14.x
     steps:
       - checkout
       - restore_cache:
@@ -234,7 +234,7 @@ jobs:
             fi      
   deploy-frontend:
     docker:
-      - image: cimg/node:16.13.1
+      - image: sleavely/node-awscli:14.x
     steps:
       - checkout
       # - aws-cli/setup
