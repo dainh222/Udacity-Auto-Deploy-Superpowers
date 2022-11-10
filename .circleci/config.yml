@@ -241,7 +241,7 @@ jobs:
           name: Install dependencies
           command: |
             sudo apt install -y gzip tar
-            pip3 install awscli
+            sudo apt install awscli
       - attach_workspace:
           at: ~/
       - run:
