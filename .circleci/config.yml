@@ -242,7 +242,7 @@ jobs:
           command: |
             sudo apt install -y gzip tar
             sudo apt-get update
-            sudo apt-get install awscli
+            sudo apt-get install -y awscli
       - attach_workspace:
           at: ~/
       - run:
