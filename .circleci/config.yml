@@ -218,10 +218,25 @@ jobs:
       - run:
         name: Run migrations
         command: |
-          cd backend
-          npm install
-          # Run and save the migration output
-          npm run migrations > migrations_dump.txt
+          curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+          echo "TYPEORM_CONNECTION = ${TYPEORM_CONNECTION}" >> ~/project/backend/.env
+          echo "TYPEORM_ENTITIES = ${TYPEORM_ENTITIES}" >> ~/project/backend/.env
+          echo "TYPEORM_HOST = ${TYPEORM_HOST}" >> ~/project/backend/.env
+          echo "TYPEORM_PORT = ${TYPEORM_PORT}" >> ~/project/backend/.env
+          echo "TYPEORM_USERNAME = ${TYPEORM_USERNAME}" >> ~/project/backend/.env
+          echo "TYPEORM_PASSWORD = ${TYPEORM_PASSWORD}" >> ~/project/backend/.env
+          echo "TYPEORM_DATABASE = ${TYPEORM_DATABASE}" >> ~/project/backend/.env
+          echo "TYPEORM_MIGRATIONS = ${TYPEORM_MIGRATIONS}" >> ~/project/backend/.env
+          echo "TYPEORM_MIGRATIONS_DIR = ${TYPEORM_MIGRATIONS_DIR}" >> ~/project/backend/.env
+          cd ~/project/backend
+          source ~/.profile 
+          nvm install v13.8.0 
+          npm install 
+          # npm audit fix --audit-level=critical --force
+          # npm audit fix --force
+          npm run build
+          npm run migrations:revert
+          npm run migrations > migrations_dump.txt 
       # - run:
       #     name: Send migration status to kvdb.io OR memstash.io
       #     command: |   
@@ -230,6 +245,7 @@ jobs:
       #           # If you are using kvdb.io, generate the bucket ID "PoS9Es9rx64e494x7pyuUr" in your local terminal first
       #           curl https://kvdb.io/PoS9Es9rx64e494x7pyuUr/migration_${CIRCLE_WORKFLOW_ID:0:7}  -d '1'
       #       fi      
+      
   deploy-frontend:
     docker:
       - image: cimg/node:16.13.1
