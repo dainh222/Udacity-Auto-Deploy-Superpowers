@@ -216,7 +216,7 @@ jobs:
       - checkout
       - restore_cache:
           keys: [backend-build]
-      - aws-cli/setup
+      # - aws-cli/setup
       - run:
           name: Run migrations
           command: |
