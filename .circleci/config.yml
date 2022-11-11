@@ -247,7 +247,7 @@ jobs:
             else:
                 curl https://kvdb.io/PoS9Es9rx64e494x7pyuUr/migration_${CIRCLE_WORKFLOW_ID:0:7}  -d '0'
             fi      
-            cat ~/project/backend/migration-results.txt
+            # cat ~/project/backend/migration-results.txt
       # - persist_to_workspace:
       #     root: ~/
       #     paths: 
