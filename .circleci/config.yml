@@ -43,10 +43,10 @@ commands:
     parameters:
     steps:
       - run:
-        name: install aws cli
-        command: |
-            sudo apt-get update
-            sudo apt-get install -y awscli     
+          name: install aws cli
+          command: |
+              sudo apt-get update
+              sudo apt-get install -y awscli     
 jobs:
   build-frontend:
     docker:
