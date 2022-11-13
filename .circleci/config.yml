@@ -320,8 +320,8 @@ jobs:
     steps:
       # Checkout code from git
       - checkout
-      - restore_cache:
-          keys: [backend-build]
+      # - restore_cache:
+      #     keys: [backend-build]
       - run:
           name: install dependecies
           command: |
@@ -355,9 +355,9 @@ jobs:
             else
               exit 1
             fi
-      - destroy-environment
-      - revert-migrations:
-          workflow_id: '${CIRCLE_WORKFLOW_ID:0:7}'
+      # - destroy-environment
+      # - revert-migrations:
+      #     workflow_id: '${CIRCLE_WORKFLOW_ID:0:7}'
 
 #   cloudfront-update:
 #     docker:
