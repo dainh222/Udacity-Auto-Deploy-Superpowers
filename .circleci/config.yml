@@ -383,9 +383,8 @@ jobs:
       - checkout
       - aws-setup
       - run:
-          name: Save Old Workflow ID
+          name: Save Old Workflow ID to kvdb.io
           command: |
-            # check
             export OLD_WORKFLOW_ID=$(aws cloudformation \
                       list-exports --query "Exports[?Name==\`WorkflowID\`].Value" \
                       --no-paginate --output text)
@@ -394,11 +393,11 @@ jobs:
       - run:
           name: Update cloudfront distribution
           command: |
+            echo ${CIRCLE_WORKFLOW_ID:0:7}
             aws cloudformation deploy \
               --template-file .circleci/files/cloudfront.yml \
-              --stack-name InitialStack \
-              --parameter-overrides WorkflowID="udapeople-${CIRCLE_WORKFLOW_ID:0:7}" \
-              --tags project=udapeople
+              --parameter-overrides WorkflowID="${CIRCLE_WORKFLOW_ID:0:7}" \
+              --stack-name udapeople-cloudfont 
         - destroy-environment
         - revert-migrations:
             workflow_id: '${CIRCLE_WORKFLOW_ID:0:7}'
