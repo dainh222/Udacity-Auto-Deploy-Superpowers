@@ -15,7 +15,7 @@
 - name: "Install npm"
   become: true
   shell:
-    cmd: "npm install"
+    cmd: "sudo npm install"
 
 - name: "Run pm2"
   become: true
