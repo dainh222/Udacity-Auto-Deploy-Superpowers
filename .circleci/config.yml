@@ -195,7 +195,7 @@ jobs:
           root: ~/
           paths:
             - project/.circleci/ansible/inventory.txt
-      # - destroy-environment  
+      - destroy-environment  
 
   configure-infrastructure:
     docker:
@@ -274,6 +274,7 @@ jobs:
             export BACKEND_IP=$(aws ec2 describe-instances...............)
             export API_URL="http://${BACKEND_IP}:3030"
             echo "API_URL = ${API_URL}"
+            echo "backend_url http://${BACKEND_IP}:3030"
             echo API_URL="http://${BACKEND_IP}:3030" >> frontend/.env
             cat frontend/.env
       - run:
