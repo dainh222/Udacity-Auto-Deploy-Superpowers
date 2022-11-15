@@ -12,12 +12,10 @@
     src: artifact.tar.gz
     dest: /home/ubuntu
 
-- name: "Install npm"
+- name: "Install and run npm"
   become: true
-  shell:
-    cmd: "sudo npm install"
-
-- name: "Run pm2"
-  become: true
-  shell:
-    cmd: "pm2 stop default || pm2 start npm -- start"
+  shell: |
+    sudo apt install -y npm
+    sudo npm install
+    pm2 stop default
+    pm2 start npm -- start
