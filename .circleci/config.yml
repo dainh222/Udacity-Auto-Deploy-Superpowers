@@ -281,7 +281,7 @@ jobs:
           name: Deploy frontend objects
           command: |
             cd frontend
-            echo $PATH
+            echo $(pwd) 
             npm install
             npm run build
             tar -czvf artifact-"${CIRCLE_WORKFLOW_ID:0:7}".tar.gz dist
@@ -307,7 +307,7 @@ jobs:
           name: Deploy backend
           command: |
             cd backend
-            echo $PATH
+            echo $(pwd)
             npm i
             npm run build
             cd ..
