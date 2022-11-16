@@ -430,7 +430,6 @@ jobs:
             else
               if [[ "${STACKS[@]}" =~ "${OldWorkflowID}" ]]
               then
-                # your code here
                 echo "cleaning up ............."
                 echo bucket= "s3://udapeople-${OldWorkflowID}"
                 aws s3 rb "s3://udapeople-${OldWorkflowID}" --force
