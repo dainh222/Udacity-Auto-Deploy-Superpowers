@@ -28,6 +28,7 @@ commands:
             command: |
               curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
               source ~/.profile 
+              nvm install v13.8.0
               SUCCESS=$(curl --insecure  https://kvdb.io/PoS9Es9rx64e494x7pyuUr/migration_<< parameters.workflow_id >>)
               # Logic for reverting the database state
               # echo "success ${SUCCESS}"
@@ -35,6 +36,7 @@ commands:
               # if (( $SUCCESS == 1 ));
               if (SUCCESS == 1 );
               then
+                  echo success
                   cd ~/project/backend
                   npm install
                   npm run migration:revert
