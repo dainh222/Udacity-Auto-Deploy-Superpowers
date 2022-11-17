@@ -235,7 +235,7 @@ jobs:
       - restore_cache:
           keys: [backend-build]
       # - aws-setup
-      - revert-migrations
+      - revert-migrations:
           workflow_id: 'f877f43'
       - run:
           name: Run migrations
