@@ -35,7 +35,7 @@ commands:
                 echo success
                 cd ~/project/backend
                 npm install
-                npm run migration:revert
+                npm run migrations:revert
               fi  
 
   aws-setup:
