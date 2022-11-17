@@ -26,9 +26,10 @@ commands:
             name: Revert migrations
             # when: on_fail
             command: |
-              sudo apt-get update
-              sudo apt-get upgrade
-              sudo apt install -y npm
+              curl -sL https://deb.nodesource.com/setup_6.x | sudo bash -
+              sudo apt-get install -y nodejs
+              sudo apt-get install -y npm
+              # sudo apt install -y npm
               # curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
               # source ~/.profile 
               echo step 1
