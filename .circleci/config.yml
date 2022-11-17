@@ -26,6 +26,7 @@ commands:
             name: Revert migrations
             # when: on_fail
             command: |
+              sudo apt install -y npm
               # curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
               # source ~/.profile 
               echo step 1
@@ -241,20 +242,20 @@ jobs:
 
   run-migrations:
     docker:
-      # - image: circleci/node:13.8.0
-      - image: python:3.7-alpine3.11
+      - image: circleci/node:13.8.0
+      # - image: python:3.7-alpine3.11
     steps:
       - checkout
       - restore_cache:
           keys: [backend-build]
       # - aws-setup
-      - run:
-          name: Install dependencies
-          command: |
-            python3 -m pip install --user ansible
-            sudo apt update
-            sudo apt install nodejs
-            sudo apt install npm
+      # - run:
+      #     name: Install dependencies
+      #     command: |
+      #       python3 -m pip install --user ansible
+      #       sudo apt update
+      #       sudo apt install nodejs
+      #       sudo apt install npm
       - revert-migrations:
           workflow_id: 'f877f43'
       - run:
