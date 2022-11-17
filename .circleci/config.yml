@@ -28,6 +28,7 @@ commands:
             command: |
               SUCCESS=$(curl --insecure  https://kvdb.io/PoS9Es9rx64e494x7pyuUr/migration_<< parameters.workflow_id >>)
               # Logic for reverting the database state
+              echo "success ${SUCCESS}"
               if (( $SUCCESS == 1 ));
               then
                   cd ~/project/backend
@@ -244,9 +245,11 @@ jobs:
             then
                 # If you are using kvdb.io, generate the bucket ID "PoS9Es9rx64e494x7pyuUr" in your local terminal first
                 curl https://kvdb.io/PoS9Es9rx64e494x7pyuUr/migration_${CIRCLE_WORKFLOW_ID:0:7}  -d '1'
+                echo "1 ${CIRCLE_WORKFLOW_ID:0:7}"
                 # echo "1" >> ~/project/backend/migration-results.txt
             else:
                 curl https://kvdb.io/PoS9Es9rx64e494x7pyuUr/migration_${CIRCLE_WORKFLOW_ID:0:7}  -d '0'
+                echo "0 ${CIRCLE_WORKFLOW_ID:0:7}"
             fi      
             # cat ~/project/backend/migration-results.txt
       # - persist_to_workspace:
@@ -368,7 +371,7 @@ jobs:
             echo ${URL} 
             if curl -s ${URL} | grep "Welcome"
             then
-              exit 0
+              exit 1
             else
               exit 1
             fi
