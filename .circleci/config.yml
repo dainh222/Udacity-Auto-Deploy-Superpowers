@@ -42,8 +42,7 @@ commands:
               echo success
               cd backend
               echo install 
-              npm install
-              npm run build
+              # npm install
               echo npm 
               npm run migration:revert
               echo revert
