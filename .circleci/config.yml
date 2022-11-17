@@ -235,6 +235,7 @@ jobs:
       - restore_cache:
           keys: [backend-build]
       # - aws-setup
+      - revert-migrations
       - run:
           name: Run migrations
           command: |
@@ -465,8 +466,8 @@ jobs:
 workflows:
   default:
     jobs:
-      - revert-migrations
-      # - run-migrations
+      # - revert-migrations
+      - run-migrations
       # - build-frontend
       # - build-backend
       # - test-frontend:
