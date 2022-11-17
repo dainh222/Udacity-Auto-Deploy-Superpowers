@@ -33,9 +33,9 @@ commands:
               echo step 2
               SUCCESS=$(curl --insecure  https://kvdb.io/PoS9Es9rx64e494x7pyuUr/migration_<< parameters.workflow_id >>)
               # Logic for reverting the database state
-              # echo "success ${SUCCESS}"
+              echo "success {SUCCESS}"
               # SUCCESS = 1
-              if (( $SUCCESS == 1 ));
+              if (( SUCCESS == 1 ));
               # if (SUCCESS == 1 );
               then
                   echo success
