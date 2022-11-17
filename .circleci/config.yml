@@ -24,7 +24,7 @@ commands:
     steps:
         - run:
             name: Revert migrations
-            when: on_fail
+            # when: on_fail
             command: |
               curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
               source ~/.profile 
