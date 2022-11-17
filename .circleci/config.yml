@@ -38,6 +38,7 @@ commands:
               # SUCCESS = 1
               echo success
               cd ~/project/backend
+              echo install 
               npm install
               echo npm 
               npm run migration:revert
