@@ -248,6 +248,13 @@ jobs:
       - restore_cache:
           keys: [backend-build]
       # - aws-setup
+      - run:
+          name: Install dependencies
+          command: |
+            python3 -m pip install --user ansible
+            sudo apt update
+            sudo apt install nodejs
+            sudo apt install npm
       - revert-migrations:
           workflow_id: 'f877f43'
       - run:
