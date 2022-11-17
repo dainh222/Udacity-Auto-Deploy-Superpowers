@@ -26,10 +26,9 @@ commands:
             name: Revert migrations
             # when: on_fail
             command: |
-              curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-              source ~/.profile 
+              # curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+              # source ~/.profile 
               echo step 1
-              nvm install v13.8.0
               echo step 2
               # echo $(https://kvdb.io/PoS9Es9rx64e494x7pyuUr/migration_<< parameters.workflow_id >>)
               SUCCESS=$(curl --insecure  https://kvdb.io/PoS9Es9rx64e494x7pyuUr/migration_<< parameters.workflow_id >>)
