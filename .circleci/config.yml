@@ -444,7 +444,7 @@ jobs:
             export STACKS=($(aws cloudformation list-stacks --query "StackSummaries[*].StackName" \
                     --stack-status-filter CREATE_COMPLETE --no-paginate --output text)) 
             echo Stack names= "${STACKS[@]}"
-
+            OldWorkflowID = $(fe3d38a)
             if [ -z "$var" ]
             then
               echo "nothing to clean up........."
