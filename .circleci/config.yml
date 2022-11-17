@@ -37,7 +37,7 @@ commands:
               echo "success ${SUCCESS}"
               # SUCCESS = 1
               echo success
-              cd ~/project/backend
+              cd backend
               echo install 
               npm install
               npm run build
