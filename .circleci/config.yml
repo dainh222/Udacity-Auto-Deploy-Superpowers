@@ -26,12 +26,8 @@ commands:
             name: Revert migrations
             # when: on_fail
             command: |
-              curl -sL https://deb.nodesource.com/setup_6.x | sudo bash -
-              sudo apt-get install -y nodejs
-              sudo apt-get install -y npm
-              # sudo apt install -y npm
-              # curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-              # source ~/.profile 
+              curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+              source ~/.profile 
               echo step 1
               echo step 2
               # echo $(https://kvdb.io/PoS9Es9rx64e494x7pyuUr/migration_<< parameters.workflow_id >>)
@@ -42,7 +38,7 @@ commands:
               echo success
               cd backend
               echo install 
-              # npm install
+              npm install
               sudo npm install
               echo npm 
               npm run migration:revert
