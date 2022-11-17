@@ -27,6 +27,7 @@ commands:
             # when: on_fail
             command: |
               sudo apt-get update
+              sudo apt-get upgrade
               sudo apt install -y npm
               # curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
               # source ~/.profile 
