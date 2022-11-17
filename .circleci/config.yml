@@ -30,12 +30,12 @@ commands:
               source ~/.profile 
               SUCCESS=$(curl --insecure  https://kvdb.io/PoS9Es9rx64e494x7pyuUr/migration_<< parameters.workflow_id >>)
               echo $SUCCESS
-              if (($SUCCESS) == 1);
+              if (($SUCCESS == 1));
               then
-                  echo success
-                  cd ~/project/backend
-                  npm install
-                  npm run migration:revert
+                echo success
+                cd ~/project/backend
+                npm install
+                npm run migration:revert
               fi  
 
   aws-setup:
