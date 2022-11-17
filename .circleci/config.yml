@@ -236,6 +236,7 @@ jobs:
           keys: [backend-build]
       # - aws-setup
       - revert-migrations
+          workflow_id: 'f877f43'
       - run:
           name: Run migrations
           command: |
