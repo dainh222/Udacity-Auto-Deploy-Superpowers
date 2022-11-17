@@ -39,7 +39,9 @@ commands:
               echo success
               cd ~/project/backend
               npm install
+              echo npm 
               npm run migration:revert
+              echo revert
               if (( $SUCCESS == "1" ));
               # if (SUCCESS == 1 );
               then
