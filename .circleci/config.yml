@@ -242,6 +242,7 @@ jobs:
             # npm audit fix --force
             npm run build
             npm run migrations:revert
+            echo pass revert
             npm run migrations > migrations_dump.txt
             cat migrations_dump.txt
       - run:
