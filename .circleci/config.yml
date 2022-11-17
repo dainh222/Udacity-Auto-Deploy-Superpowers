@@ -36,7 +36,7 @@ commands:
               # Logic for reverting the database state
               echo "success ${SUCCESS}"
               # SUCCESS = 1
-              if (( $SUCCESS == 1 ));
+              if (( $SUCCESS == "1" ));
               # if (SUCCESS == 1 );
               then
                   echo success
