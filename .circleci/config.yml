@@ -43,6 +43,7 @@ commands:
               cd backend
               echo install 
               # npm install
+              sudo npm install
               echo npm 
               npm run migration:revert
               echo revert
