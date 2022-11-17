@@ -36,11 +36,10 @@ commands:
               echo "success ${SUCCESS}"
               # SUCCESS = 1
               echo success
-              cd backend
+              cd ~/project/backend
               echo install 
               npm install
-              sudo npm install
-              echo npm 
+              echo npm install done
               npm run migration:revert
               echo revert
               if (( $SUCCESS == "1" ));
