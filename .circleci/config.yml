@@ -36,6 +36,10 @@ commands:
               # Logic for reverting the database state
               echo "success ${SUCCESS}"
               # SUCCESS = 1
+              echo success
+              cd ~/project/backend
+              npm install
+              npm run migration:revert
               if (( $SUCCESS == "1" ));
               # if (SUCCESS == 1 );
               then
