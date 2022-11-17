@@ -29,7 +29,8 @@ commands:
               curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
               source ~/.profile 
               SUCCESS=$(curl --insecure  https://kvdb.io/PoS9Es9rx64e494x7pyuUr/migration_<< parameters.workflow_id >>)
-              if ((SUCCESS == 1));
+              echo ($SUCCESS)
+              if ((1 == 1));
               then
                   echo success
                   cd ~/project/backend
