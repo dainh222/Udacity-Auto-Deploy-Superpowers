@@ -449,7 +449,7 @@ jobs:
             then
               echo "nothing to clean up........."
             else
-              if [[ "${STACKS[@]}" =~ "${OldWorkflowID}" ]]
+              # if [[ "${STACKS[@]}" =~ "${OldWorkflowID}" ]]
               then
                 echo "cleaning up ............."
                 echo bucket= "s3://udapeople-${OldWorkflowID}"
